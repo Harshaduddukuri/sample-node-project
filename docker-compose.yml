@@ -1,8 +1,21 @@
 services:
   app:
-    container_name: app
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: 061578311761.dkr.ecr.us-east-1.amazonaws.com/dockerlrn:node 
+     
     ports:
       - "3000:3000"
+# mongo db service
+  mongodb:
+    image: mongo:7
+
+    container_name: mongodb
+
+    ports:
+
+      - "27017:27017"
+
+    volumes:
+
+      - mongo-data:/data/db
+volumes:
+  mongo-data 
